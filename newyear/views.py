@@ -4,6 +4,9 @@ import datetime
 
 def index(request):
     now = datetime.datetime.now()
-    return render(request, "newyear/index.html", {
-        "newyear" : now.month == 1 and now.day == 1})
+    newyear = datetime.datetime(now.year + 1, 1, 1)
+    diff = newyear - now
+    return render(request, "newyear/index1.html", {
+        "newyear" : now.month == 1 and now.day == 1,
+        "days_left" : diff.days})
 
