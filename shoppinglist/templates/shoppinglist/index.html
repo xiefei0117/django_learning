@@ -1,0 +1,27 @@
+{% extends "shoppinglist/layout.html" %}
+
+{% block body %}
+    <h1>Shopping List: </h1>
+    {% if dict|length == 0 %}
+        <p>I don't have any shopping list yet. {{ dict }} </p>
+    {% else %}
+        <table>
+            <thead>
+                <th>Item</th>
+                <th>Counts</th>
+            </thead>
+            <tbody>
+                {% for key, value in dict.items %}
+                    <tr>
+                        <td> {{ key }} </td>
+                        <td> {{ value }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+
+    {% endif %}
+
+    <a href="{% url 'shoppinglist:add' %}">Add New Shopping Item </a>
+{% endblock %}

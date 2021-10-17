@@ -1,0 +1,10 @@
+{% extends "shoppinglist/layout.html" %}
+{% block body %}
+    <h1>Add Shopping Item</h1>
+    <form action = "{% url 'shoppinglist:add' %}" method = "post">
+        {% csrf_token %}
+        {{ form }}
+        <input type = "submit">
+    </form>
+    <a href="{% url 'shoppinglist:index' %}">View Current Shopping List</a>
+{% endblock %}
